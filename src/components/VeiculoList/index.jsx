@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AddVeiculo from "../AddVeiculo";
 
 import { useAxios } from "../../hooks/useAxios";
@@ -8,14 +8,15 @@ import { Container, VeiculoListWrapper } from "./styles";
 import { FormModalContext } from "../../context/FormModalContext";
 
 export default function VeiculoList() {
-
   const { isFormModalUp } = useContext(FormModalContext);
   const [data, setData] = useState();
+  const axios = useAxios("veiculos");
 
   useEffect(() => {
-    const { data } = useAxios('veiculos');
+    const { data, mutate } = axios;
+    mutate(data, true);
     setData(data);
-  }, [isFormModalUp]);
+  }, [isFormModalUp, axios]);
 
   return (
     <Container>
