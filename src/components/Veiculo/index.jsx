@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { IoTrashBin, IoThumbsUp, IoPencil, IoClipboardSharp } from "react-icons/io5";
+import { IoTrashBin, IoPencil, IoClipboardSharp } from "react-icons/io5";
 import { EditingVeiculoContext } from "../../context/EditingVeiculoContext";
 
 import { FormModalContext } from "../../context/FormModalContext";
