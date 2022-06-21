@@ -7,7 +7,7 @@ import { EditingMovimentationContext } from "./EditingMovimentationContext";
 export const MovimentationContext = createContext();
 
 export function MovimentationProvider({ children }) {
-  const { data, mutate } = useAxios("veiculos");
+  const { data, mutate } = useAxios("movto");
 
   const [marca, setMarca] = useState("");
   const [modelo, setModelo] = useState("");
@@ -53,7 +53,7 @@ export function MovimentationProvider({ children }) {
         modelo,
         placa,
         ano,
-        date,
+        datas: date,
         km,
         qtde,
         valor,
@@ -68,9 +68,9 @@ export function MovimentationProvider({ children }) {
         }),
       };
 
-      mutate(updatedVeiculos, false);
+      mutate(updatedVeiculos, true);
     } else {
-      const veiculo = {
+      const movto = {
         marca,
         modelo,
         placa,
@@ -80,13 +80,13 @@ export function MovimentationProvider({ children }) {
         qtde,
         valor,
       };
-      api.post("movto", veiculo);
+      api.post("movto", movto);
 
       const updatedVeiculos = {
-        veiculos: [...data.veiculos, veiculo],
+        veiculos: [...data.movto, movto],
       };
 
-      mutate(updatedVeiculos, false);
+      mutate(updatedVeiculos, true);
     }
 
     closeFormModal();

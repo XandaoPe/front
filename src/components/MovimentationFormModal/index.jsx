@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { EditingVeiculoContext } from "../../context/EditingVeiculoContext";
 import { MovimentationContext } from "../../context/MovimentationContext";
 
 import {
