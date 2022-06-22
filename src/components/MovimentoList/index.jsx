@@ -3,6 +3,7 @@ import { useAxios } from "../../hooks/useAxios";
 import { BsFillTrashFill } from "react-icons/bs";
 import { Container, Message } from "./styles";
 import api from "../../services/api";
+import { Media } from "../media";
 
 export function MovimentoList() {
   const [data, setData] = useState();
@@ -12,7 +13,6 @@ export function MovimentoList() {
     const { data, mutate } = axios;
     mutate(data, true);
     setData(data);
-    console.log(data);
   }, [axios]);
 
   function handleDelete(id) {
@@ -42,9 +42,9 @@ export function MovimentoList() {
             </tr>
           </thead>
           <tbody>
-            {data?.movto?.map((item) => {
+            {data?.movto?.map((item, index, arrayItems) => {
               return (
-                <tr>
+                <tr key={item._id}>
                   <td>{item.placa}</td>
                   <td>{item.km} KM</td>
                   <td>{item.qtde} Litros</td>
@@ -60,7 +60,7 @@ export function MovimentoList() {
                     )}
                   </td>
                   <td>
-                    <button>Média</button>
+                    <Media item={item} index={index} arrayItems={arrayItems} />
 
                     <button onClick={() => handleDelete(item._id)}>
                       <BsFillTrashFill color="red" size="30px" />
