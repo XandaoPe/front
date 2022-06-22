@@ -39,20 +39,6 @@ export const Container = styled.div`
         gap: 0.5rem;
       }
 
-      button:nth-child(1) {
-        background: green;
-        border: none;
-        box-shadow: 1px 1px 3px #dc83f7;
-        border-radius: 0.25rem;
-        padding: 0.5rem;
-        cursor: pointer;
-        font-weight: thin;
-        color: white;
-        &:hover {
-          filter: brightness(0.9);
-        }
-      }
-
       button:nth-child(2) {
         background: transparent;
         border: none;
