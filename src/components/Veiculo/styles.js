@@ -17,7 +17,8 @@ export const Container = styled.div`
   align-items: center;
 
   & > h2 {
-    color: #1e1e1e;
+    /* color: #1e1e1e; */
+    color: black;
   }
 
   & > p {
@@ -26,8 +27,9 @@ export const Container = styled.div`
     max-width: 230px;
 
     /* color: #999999; */
-    color: #1e1e1e;    
-    font-style: italic;
+    /* color: #1e1e1e;     */
+    color: black;    
+    /* font-style: italic; */
     align-self: start;
 
     white-space: nowrap;

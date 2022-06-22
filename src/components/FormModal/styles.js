@@ -39,7 +39,8 @@ export const Header = styled.div`
   width: 100%;
   height: 40px;
 
-  color: #1e1e1e;
+  /* color: #1e1e1e; */
+  color: black;
   background-color: transparent;
   padding: 0;
   font-weight: 700;

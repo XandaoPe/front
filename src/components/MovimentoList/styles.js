@@ -10,7 +10,8 @@ export const Container = styled.div`
     border-spacing: 0 0.5rem;
 
     th {
-      color: #dc83f7;
+      /* color: #dc83f7; */
+      color: white;
       font-weight: 400;
       padding: 1rem 2rem;
       text-align: left;
@@ -26,10 +27,14 @@ export const Container = styled.div`
       padding: 1rem 2rem;
       border: 0;
 
-      color: #dc83f7;
+      /* color: #dc83f7; */
+      color: black;
 
       &:nth-child(1) {
-        color: #ec53d7;
+        /* color: #ec53d7; */
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
       }
 
       &:last-child {

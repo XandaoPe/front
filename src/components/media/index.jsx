@@ -26,14 +26,14 @@ export function Media({ item, index, arrayItems }) {
 
       return `${new Intl.NumberFormat("pt-BR", {
         maximumSignificantDigits: 3,
-      }).format(media)} (dois últimos abastecimento)`;
+      }).format(media)} Km/Lt (dois últimos abastecimento)`;
     }
 
     const media = Math.floor(items[0].km / items[0].qtde);
 
     return `${new Intl.NumberFormat("pt-BR", {
       maximumSignificantDigits: 3,
-    }).format(media)} (último abastecimento)`;
+    }).format(media)} Km/Lt (último abastecimento)`;
   };
 
   return (
