@@ -91,7 +91,7 @@ export default function FormModal() {
               <label htmlFor="marca">Ano</label>
               <input
                 id="ano"
-                type="text"
+                type="number"
                 value={ano}
                 placeholder="Inserir o Ano do Veículo"
                 onChange={anoHandler}

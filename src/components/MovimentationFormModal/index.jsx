@@ -87,9 +87,9 @@ export default function MovimentationFormModal() {
               <label htmlFor="km">Quilômetros (KM)</label>
               <input
                 id="km"
-                type="text"
+                type="number"
                 value={km}
-                placeholder="Inserir quilômetros rodados"
+                placeholder="Inserir km do Veículo"
                 onChange={kmHandler}
               />
             </InputGroup>
@@ -97,7 +97,7 @@ export default function MovimentationFormModal() {
               <label htmlFor="Quantidade">Quantidade</label>
               <input
                 id="Quantidade"
-                type="text"
+                type="number"
                 value={qtde}
                 placeholder="Inserir a quantidade"
                 onChange={qtdeHandler}
@@ -107,9 +107,9 @@ export default function MovimentationFormModal() {
               <label htmlFor="valor">Valor</label>
               <input
                 id="valor"
-                type="text"
+                type="number"
                 value={valor}
-                placeholder="Inserir o Valor do Veículo"
+                placeholder="Inserir o Valor do Abastecimento"
                 onChange={valorHandler}
               />
             </InputGroup>
