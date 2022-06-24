@@ -60,7 +60,7 @@ export function MovimentationProvider({ children }) {
       });
 
       const updatedVeiculos = {
-        veiculos: data.veiculos?.map((veiculo) => {
+        veiculos: data?.veiculos?.map((veiculo) => {
           if (veiculo._id === editingMovimentation) {
             return { ...veiculo, marca, modelo, placa, ano };
           }

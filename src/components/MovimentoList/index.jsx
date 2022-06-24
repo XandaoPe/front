@@ -42,33 +42,39 @@ export function MovimentoList() {
             </tr>
           </thead>
           <tbody>
-            {data?.movto?.map((item, index, arrayItems) => {
-              return (
-                <tr key={item._id}>
-                  <td>{item.placa}</td>
-                  <td>{item.km} KM</td>
-                  <td>{item.qtde} Litros</td>
-                  <td>
-                    {new Intl.NumberFormat("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    }).format(item.valor)}
-                  </td>
-                  <td>
-                    {new Intl.DateTimeFormat("pt-BR").format(
-                      new Date(item.datas)
-                    )}
-                  </td>
-                  <td>
-                    <Media item={item} index={index} arrayItems={arrayItems} />
+            {data?.movto
+              ?.map((item, index, arrayItems) => {
+                return (
+                  <tr key={item._id}>
+                    <td>{item.placa}</td>
+                    <td>{item.km} KM</td>
+                    <td>{item.qtde} Litros</td>
+                    <td>
+                      {new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      }).format(item.valor)}
+                    </td>
+                    <td>
+                      {new Intl.DateTimeFormat("pt-BR").format(
+                        new Date(item.datas)
+                      )}
+                    </td>
+                    <td>
+                      <Media
+                        item={item}
+                        index={index}
+                        arrayItems={arrayItems}
+                      />
 
-                    <button onClick={() => handleDelete(item._id)}>
-                      <BsFillTrashFill color="red" size="30px" />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
+                      <button onClick={() => handleDelete(item._id)}>
+                        <BsFillTrashFill color="red" size="30px" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+              .reverse()}
           </tbody>
         </table>
       ) : (

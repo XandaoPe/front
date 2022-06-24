@@ -17,7 +17,12 @@ export function FormModalProvider({ children }) {
 
   const { editingVeiculo } = useContext(EditingVeiculoContext);
 
-  function handleEditMode(veiculoMarca, veiculoModelo, veiculoPlaca, veiculoAno) {
+  function handleEditMode(
+    veiculoMarca,
+    veiculoModelo,
+    veiculoPlaca,
+    veiculoAno
+  ) {
     setMarca(veiculoMarca);
     setModelo(veiculoModelo);
     setPlaca(veiculoPlaca);
@@ -27,6 +32,11 @@ export function FormModalProvider({ children }) {
 
   function submitForm(e) {
     e.preventDefault();
+
+    if (!placa.match(/^[A-Z]{3}-[0-9][A-Z0-9]{2}[0-9]{1}$/)) {
+      window.alert("Formato da Placa Não coincide");
+      return;
+    }
 
     if (editingVeiculo) {
       api.put(`veiculos/${editingVeiculo}`, {
