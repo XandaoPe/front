@@ -70,8 +70,8 @@ export default function MovimentationFormModal() {
                 <strong>Placa:</strong> {placa}
               </p>
               <p>
-                <strong>Ano:</strong>{" "}
-                {new Intl.DateTimeFormat("pt-BR").format(new Date(ano))}
+                <strong>Ano:</strong>{ano}
+                {/* {new Intl.DateTimeFormat("pt-BR").format(new Date(ano))} */}
               </p>
             </div>
             <InputGroup>

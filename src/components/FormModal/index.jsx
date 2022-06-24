@@ -66,24 +66,35 @@ export default function FormModal() {
     }
 
     // Jump to 6 because the index 5 is equal "-"
+    if (length === 5 && value.match(/^[A-Z0-9]/)) {
+      setPlaca((prevState) => prevState + value);
+      return;
+    }
+
+
     if (length === 6 && value.match(/^[A-Z0-9]/)) {
       setPlaca((prevState) => prevState + value);
       return;
     }
 
-    if (length === 7 && e.target.value[length - 2].match(/[^A-Z]/)) {
-      if (value.match(/[^0-9]/)) {
-        return setPlaca((prevState) => prevState + value);
-      }
+    if (length === 7 && value.match(/^[A-Z0-9]/)) {
+      setPlaca((prevState) => prevState + value);
       return;
     }
 
-    if (length === 7 && e.target.value[length - 2].match(/[^0-9]/)) {
-      if (value.match(/[^A-Z]/)) {
-        return setPlaca((prevState) => prevState + value);
-      }
-      return;
-    }
+    // if (length === 7 && e.target.value[length - 2].match(/[^A-Z]/)) {
+    //   if (value.match(/[^0-9]/)) {
+    //     return setPlaca((prevState) => prevState + value);
+    //   }
+    //   return;
+    // }
+
+    // if (length === 7 && e.target.value[length - 2].match(/[^0-9]/)) {
+    //   if (value.match(/[^A-Z]/)) {
+    //     return setPlaca((prevState) => prevState + value);
+    //   }
+    //   return;
+    // }
 
     if (length === 8 && value.match(/^[0-9]/)) {
       setPlaca((prevState) => prevState + value);
@@ -148,11 +159,11 @@ export default function FormModal() {
               <label htmlFor="ano">Ano</label>
               <input
                 id="ano"
-                type="month"
+                type="number"
                 value={ano}
                 placeholder="Inserir o Ano do Veículo"
                 onChange={anoHandler}
-                required="Insira o Ano do Veículo"
+              // required="Insira o Ano do Veículo"
               />
             </InputGroup>
           </FormMain>
