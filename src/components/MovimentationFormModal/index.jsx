@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MovimentationContext } from "../../context/MovimentationContext";
-
+import CurrencyInput from "react-currency-input-field";
 import {
   Overlay,
   Container,
@@ -24,7 +24,6 @@ export default function MovimentationFormModal() {
     date,
     km,
     qtde,
-    valor,
     setDate,
     setKm,
     setQtde,
@@ -38,15 +37,15 @@ export default function MovimentationFormModal() {
   }
 
   function kmHandler(e) {
-    setKm(e.target.value);
+    if (Number(e.target.value) <= 5000) {
+      setKm(e.target.value);
+    }
   }
 
   function qtdeHandler(e) {
-    setQtde(e.target.value);
-  }
-
-  function valorHandler(e) {
-    setValor(e.target.value);
+    if (Number(e.target.value) <= 120) {
+      setQtde(e.target.value);
+    }
   }
 
   return (
@@ -71,7 +70,8 @@ export default function MovimentationFormModal() {
                 <strong>Placa:</strong> {placa}
               </p>
               <p>
-                <strong>Ano:</strong> {ano}
+                <strong>Ano:</strong>{" "}
+                {new Intl.DateTimeFormat("pt-BR").format(new Date(ano))}
               </p>
             </div>
             <InputGroup>
@@ -98,6 +98,7 @@ export default function MovimentationFormModal() {
               <input
                 id="Quantidade"
                 type="number"
+                maxLength={80}
                 value={qtde}
                 placeholder="Inserir a quantidade"
                 onChange={qtdeHandler}
@@ -105,12 +106,16 @@ export default function MovimentationFormModal() {
             </InputGroup>
             <InputGroup>
               <label htmlFor="valor">Valor</label>
-              <input
+
+              <CurrencyInput
                 id="valor"
-                type="number"
-                value={valor}
+                name="valor"
                 placeholder="Inserir o Valor do Abastecimento"
-                onChange={valorHandler}
+                decimalsLimit={2}
+                maxLength="6"
+                allowNegativeValue={false}
+                prefix="R$"
+                onValueChange={(value) => setValor(value)}
               />
             </InputGroup>
           </FormMain>
